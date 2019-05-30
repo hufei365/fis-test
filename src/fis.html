@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fis upgrade</title>
+
+    <script src="require.js"></script>
+    <script src="resource-map.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <pre>
+        <code>
+                console.log(new Date);
+                console.log("test-common:node_modules/@babel/runtime-corejs3/core-js-stable/promisesdfasfsfsd!@#$%^&*()");
+                Promise.resolve(1).then(d => {
+                    console.log(` Promise.resolve(1).then(d=>{
+                    console.log(d);
+                });`);
+                });
+        </code>
+    </pre>
+    <script>
+        console.log(new Date);
+        console.log("test-common:node_modules/@babel/runtime-corejs3/core-js-stable/promisesdfasfsfsd!@#$%^&*()");
+        Promise.resolve(1).then(d => {
+            console.log(` Promise.resolve(1).then(d=>{
+            console.log(d);
+        });`);
+        });    
+    </script>
+
+    <script>
+        require.async('es2015.js', function () {
+            Promise.resolve(2).then(d => {
+                console.log(` require.async('es2015.js', function(){
+            Promise.resolve(2).then(d=>{
+                console.log(d)
+            });
+        });`)
+            });
+        });
+    </script>
+
+
+    <script>
+        require.async(['es2015.js', 'app.js'], function () {
+            Promise.resolve(3).then(d => {
+                console.log(` require.async(['es2015.js'], function(){
+            Promise.resolve(3).then(d=>{
+                console.log(d)
+            });
+        });`)
+            });
+        });
+
+        
+    </script>
+
+
+</body>
+
+</html>

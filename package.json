@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "main": "okay-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/runtime-corejs3": "^7.4.4",
+    "extend": "^3.0.2",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "description": ""
+}
