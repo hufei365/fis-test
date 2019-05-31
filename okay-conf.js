@@ -15,16 +15,23 @@ fis.match('/src/{require.js, resource-map.js}', {
 
 fis.match('/src/(**.{html, js, png, scss, css, jpg, vue})', {
     release :'$1',
-    deploy: fis.plugin('local-deliver', {
-        to: path.resolve(__dirname, './output')
-    })
+    // deploy: fis.plugin('local-deliver', {
+    //     to: path.resolve(__dirname, './output')
+    // })
 });
+fis.match('/src/(**).vue', {
+    release :'$1_vue.js',
+    // deploy: fis.plugin('local-deliver', {
+    //     to: path.resolve(__dirname, './output')
+    // })
+});
+
 
 fis.match('/node_modules/(*)/**.js', {
     release :'$0',
-    deploy: fis.plugin('local-deliver', {
-        to: path.resolve(__dirname, './output')
-    })
+    // deploy: fis.plugin('local-deliver', {
+    //     to: path.resolve(__dirname, './output')
+    // })
 });
 
 
