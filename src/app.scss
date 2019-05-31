@@ -1,5 +1,22 @@
+
+$sw: 122px 128px 400px 33px 219px 82px 128px 128px;
+$sh: 122px 128px 400px 32px 194px 80px 128px 128px;
+@function column-width($pos) { 
+  @return nth($sw, $pos); 
+}
+@function column-height($pos) { 
+  @return nth($sh, $pos); 
+}
+
 body {
     p{
         color: red;
     }
+
+    @for $i from 1 to 9 {
+        .ico-00#{$i} {
+          @include fis-icon-rect(column-width($i), column-height($i));
+          background-image: url(./imgs/00#{$i}.png?__sprite);
+        }
+      }
 }

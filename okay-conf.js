@@ -8,10 +8,24 @@ fis.set('map_file', '/resource-map.js');
 
 fis.hook(require('../fis3-hook-npm'));
 
+
+fis.match('/**\.{css,scss}', {
+    // 图片合并
+    useSprite: true
+});
+
 fis.match('/src/{require.js, resource-map.js}', {
     isMod: false,
     parser: null
 });
+fis.match('::package', {
+    // 图片合并
+    spriter: fis.plugin('csssprites', {
+        // 排列方式, linear || matrix
+        layout: 'linear'
+    })
+});
+
 
 fis.match('/src/(**.{html, js, png, scss, css, jpg, vue})', {
     release :'$1',
