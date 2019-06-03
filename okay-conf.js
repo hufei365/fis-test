@@ -34,14 +34,7 @@ fis.match('/src/**.vue', {
     rExt: 'js',
     useSameNameRequire: true,
 	isPartial:false,
-    parser: [
-        (function(c, f){
-            f.isJsLike=true;
-            f.isPartial = false;
-            console.log(22222222222);
-
-            return c;
-        }),
+    parser: [     
         // https://github.com/ccqgithub/fis3-parser-vue-component
         fis.plugin('vue-component', {
             runtimeOnly: true,
