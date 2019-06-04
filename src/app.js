@@ -1,4 +1,5 @@
 import App from "app.vue";
+// const Vue = require('vue');
 import Vue from "vue/dist/vue.common.dev";
 
 

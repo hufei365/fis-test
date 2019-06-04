@@ -28,14 +28,7 @@ fis.match('::package', {
 
 // 编译vue组件
 fis.match('/src/**.vue', {
-    useCompile: true, // need force specific the property  // https://github.com/fex-team/fis3/commit/eadc96bfe112d5d4cf5eb349e8a2b6e195bcb5c2
-    isMod: true,
-    // useHash: true,
-    rExt: 'js',
-    useSameNameRequire: true,
-	isPartial:false,
-    parser: [     
-        // https://github.com/ccqgithub/fis3-parser-vue-component
+    parser: [    
         fis.plugin('vue-component', {
             runtimeOnly: true,
             styleNameJoin: '',
@@ -47,10 +40,22 @@ fis.match('/src/**.vue', {
 			isPartial:false,
         })
 		,fis.plugin('babel-7', {
-            sourceMap:false
+            sourceMap: 'both'
         }) // 处理ES6
     ]
 });
+
+// fis.match('*.{css,scss}', {
+//     // 开启图片压缩;
+//     // useSprite: true,
+//     // css 压缩;
+//     optimizer: fis.plugin('clean-css')
+//     // ,packTo: '/pkg/quizcenter.css'
+// })
+// .match('{**.js,**.vm:js,**.html:js,**.vue}', {
+//     // js 压缩;
+//     optimizer: fis.plugin('uglify-js', {})
+// });
 
 
 fis.match('/src/(**.{html, js, png, scss, css, jpg, vue})', {
@@ -61,6 +66,21 @@ fis.match('/src/(**.{html, js, png, scss, css, jpg, vue})', {
 });
 fis.match('/src/(**).vue', {
     release :'$1_vue.js',
+    // deploy: fis.plugin('local-deliver', {
+    //     to: path.resolve(__dirname, './output')
+    // })
+});
+
+
+fis.match('/src/module/**.js',{
+    useCompile: false
+});
+fis.match('/src/module/**.html:js',{
+    useCompile: false,
+    parser:null
+});
+fis.match('/src/module/(**.{html, js, png, scss, css, jpg, vue})', {
+    release :'$1',
     // deploy: fis.plugin('local-deliver', {
     //     to: path.resolve(__dirname, './output')
     // })

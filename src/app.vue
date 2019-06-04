@@ -1,6 +1,7 @@
 <template>
   <div>
-    Hello Fis
+    Hello Fis {{new Date}}
+    <book :name="name" :desc="desc"></book>
     <nav>
       <a href="/">
         <i class="ico ico-001"></i>UX
@@ -53,15 +54,19 @@ nav{
 
 
 <script>
-Promise.resolve('resolve app.vue').then(v=>{
-  console.log(v);
-  console.log(2222);
-  console.log(3333);
-  console.log(11);
-  console.log(1);
-  console.log('asdf');
-})
-export default {};
+import Book from 'components/book.vue';
+
+export default {
+  data(){
+    return {
+      name: '历史的',
+      desc: 'This is desc'
+    }
+  },
+  components:{
+    Book
+  }
+};
 </script>
 
 components/theme/jquery.ui.scss
